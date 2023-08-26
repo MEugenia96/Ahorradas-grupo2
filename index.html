@@ -173,11 +173,11 @@
                             <h1 class="tittle is-size-2 has-text-weight-bold">Nueva operación</h1>
                         </div>
                         <div class="mb-3">
-                            <label class="label">Descripción</label>
+                            <label for="descripcion" class="label">Descripción</label>
                             <input  type="text" class="input" id="descripcion">
                         </div>
                         <div class="mb-3">
-                            <label class="label">Monto</label>
+                            <label for="monto" class="label">Monto</label>
                             <input  type="text" class="input" id="monto"  placeholder="0">
                         </div>
                         <div class="mb-3">
@@ -185,6 +185,7 @@
                         </div>
                         <div class="select is-fullwidth mb-3">
                             <select id="tipo">
+                                <option value="seleccion" selected disabled>Seleccione el tipo</option>
                                 <option value="Gasto">Gasto</option>
                                 <option value="Ganancias">Ganancias</option>
                             </select>
@@ -194,6 +195,7 @@
                         </div>
                         <div class="select is-fullwidth mb-3">
                             <select id="select-categoria">
+                                <option value="seleccion1" selected disabled>Seleccione la cateoría</option>
                                 <option value="Comida">Comida</option>
                                 <option value="Servicios">Servicios</option>
                                 <option value="Salidas">Salidas</option>
