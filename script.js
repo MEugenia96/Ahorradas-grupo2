@@ -43,7 +43,7 @@ const viewReports = () =>{
 //Agregar nuevas operaciones
 
 //array de objetos para pushear ej nuevasOperaciones.descripcion = valor
-const nuevasOperaciones = [
+let nuevasOperaciones = [
     {}
 ];
 
@@ -51,39 +51,73 @@ const nuevasOperaciones = [
 $('descripcion').addEventListener('change', (e) => captarDescripcion(e));
 const captarDescripcion = (e) =>{
     let vlrDescrip = e.target.value;
-    nuevasOperaciones[0].descripcion = vlrDescrip
+    nuevasOperaciones.descripcion = vlrDescrip;
+    agregarNuevaOp(nuevasOperaciones)
 }
 //* Agregar monto *//
 $('monto').addEventListener('change', (e) => captarMonto(e));
 const captarMonto = (e) =>{
     let vlrMonto = e.target.value;
-    nuevasOperaciones[0].monto = vlrMonto;
+    nuevasOperaciones.monto = vlrMonto;
+    agregarNuevaOp(nuevasOperaciones)
 }
 //* Agregar tipo *//
 $('tipo').addEventListener('change', (e) => captarTipo(e));
 const captarTipo = (e) =>{
     let vlrTipo = e.target.value;
-    nuevasOperaciones[0].tipo = vlrTipo;
+    nuevasOperaciones.tipo = vlrTipo;
+    agregarNuevaOp(nuevasOperaciones)
 }
 //* Agregar categoria *//
 $('select-categoria').addEventListener('change', (e) => captarCategoria(e));
 const captarCategoria = (e) =>{
     let vlrCategoria = e.target.value;
-    nuevasOperaciones[0].categoria = vlrCategoria;
+    nuevasOperaciones.categoria = vlrCategoria;
+    agregarNuevaOp(nuevasOperaciones)
 }
 //* Agregar fecha *//
 $('fecha').addEventListener('change', (e) => captarFecha(e));
 const captarFecha = (e) =>{
     let vlrFecha = e.target.value;
-    nuevasOperaciones[0].fecha = vlrFecha;
+    nuevasOperaciones.fecha = vlrFecha;
 }
 
 console.log(nuevasOperaciones)
 
-// $('boton-agregar').addEventListener('click', () => agregarNuevaOp())
-
-// const agregarNuevaOp = () =>{
-
-// }
+$('boton-agregar').addEventListener('click', () => agregarNuevaOp())
 
 
+const agregarNuevaOp = (operaciones) => {
+        const operacionDiv = document.createElement('div');
+        operacionDiv.classList.add('columns', 'is-8');
+        operacionDiv.innerHTML = `
+            <div class="column is-flex is-justify-content-space-evenly">
+                <section class="is-flex-direction-column">
+                    <h2>Descripción</h2>
+                    <p class="mt-6">${operaciones.descripcion}</p> 
+                </section>
+                <section class="is-flex-direction-column">
+                    <h2>Categoria</h2>
+                    <p class="mt-6">${operaciones.categoria}</p> 
+                </section>
+                <section class="is-flex-direction-column">
+                    <h2>Fecha</h2>
+                    <p class="mt-6"></p> 
+                </section>
+                <section class="is-flex-direction-column">
+                    <h2>Monto</h2>
+                    <p class="mt-6">${operaciones.monto}</p> 
+                </section>
+            </div>`;
+
+            console.log(operaciones.descripcion)
+            console.log(operaciones.monto)
+            console.log(operaciones.categoria)
+        
+        $('agregado-op').appendChild(operacionDiv);
+    ;
+}
+
+
+
+// agregarNuevaOp(nuevasOperaciones) //ejecutar la funcion

@@ -2,3 +2,8 @@
 .hidden{
     display: none;
 }
+
+.agregado-op{
+    height: 300px;
+    border: solid 1px black;
+}
