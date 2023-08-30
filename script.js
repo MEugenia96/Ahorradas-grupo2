@@ -51,73 +51,85 @@ let nuevasOperaciones = [
 $('descripcion').addEventListener('change', (e) => captarDescripcion(e));
 const captarDescripcion = (e) =>{
     let vlrDescrip = e.target.value;
-    nuevasOperaciones.descripcion = vlrDescrip;
+    nuevasOperaciones.Descripcion = vlrDescrip;
     agregarNuevaOp(nuevasOperaciones)
 }
 //* Agregar monto *//
 $('monto').addEventListener('change', (e) => captarMonto(e));
 const captarMonto = (e) =>{
     let vlrMonto = e.target.value;
-    nuevasOperaciones.monto = vlrMonto;
+    nuevasOperaciones.Monto = vlrMonto;
     agregarNuevaOp(nuevasOperaciones)
 }
 //* Agregar tipo *//
 $('tipo').addEventListener('change', (e) => captarTipo(e));
 const captarTipo = (e) =>{
     let vlrTipo = e.target.value;
-    nuevasOperaciones.tipo = vlrTipo;
+    nuevasOperaciones.Tipo = vlrTipo;
     agregarNuevaOp(nuevasOperaciones)
 }
 //* Agregar categoria *//
 $('select-categoria').addEventListener('change', (e) => captarCategoria(e));
 const captarCategoria = (e) =>{
     let vlrCategoria = e.target.value;
-    nuevasOperaciones.categoria = vlrCategoria;
+    nuevasOperaciones.Categoria = vlrCategoria;
     agregarNuevaOp(nuevasOperaciones)
 }
 //* Agregar fecha *//
 $('fecha').addEventListener('change', (e) => captarFecha(e));
 const captarFecha = (e) =>{
     let vlrFecha = e.target.value;
-    nuevasOperaciones.fecha = vlrFecha;
+    nuevasOperaciones.Fecha = vlrFecha;
 }
 
-console.log(nuevasOperaciones)
 
-$('boton-agregar').addEventListener('click', () => agregarNuevaOp())
+
+
+// const agregarNuevaOp = (operaciones) => {
+//         const operacionDiv = document.createElement('div');
+//         operacionDiv.classList.add('columns', 'is-8');
+//         operacionDiv.innerHTML = `
+//             <div class="column is-flex is-justify-content-space-evenly">
+//                 <section class="is-flex-direction-column">
+//                     <h2>Descripción</h2>
+//                     <p class="mt-6">${operaciones.descripcion}</p> 
+//                 </section>
+//                 <section class="is-flex-direction-column">
+//                     <h2>Categoria</h2>
+//                     <p class="mt-6">${operaciones.categoria}</p> 
+//                 </section>
+//                 <section class="is-flex-direction-column">
+//                     <h2>Fecha</h2>
+//                     <p class="mt-6"></p> 
+//                 </section>
+//                 <section class="is-flex-direction-column">
+//                     <h2>Monto</h2>
+//                     <p class="mt-6">${operaciones.monto}</p> 
+//                 </section>
+//             </div>`;
+
+        
+//         $('agregado-op').appendChild(operacionDiv);
+//     ;
+// }
+
 
 
 const agregarNuevaOp = (operaciones) => {
-        const operacionDiv = document.createElement('div');
-        operacionDiv.classList.add('columns', 'is-8');
-        operacionDiv.innerHTML = `
-            <div class="column is-flex is-justify-content-space-evenly">
-                <section class="is-flex-direction-column">
-                    <h2>Descripción</h2>
-                    <p class="mt-6">${operaciones.descripcion}</p> 
-                </section>
-                <section class="is-flex-direction-column">
-                    <h2>Categoria</h2>
-                    <p class="mt-6">${operaciones.categoria}</p> 
-                </section>
-                <section class="is-flex-direction-column">
-                    <h2>Fecha</h2>
-                    <p class="mt-6"></p> 
-                </section>
-                <section class="is-flex-direction-column">
-                    <h2>Monto</h2>
-                    <p class="mt-6">${operaciones.monto}</p> 
-                </section>
-            </div>`;
+	const operacionDiv = document.createElement('div');
+	operacionDiv.classList.add('columns', 'is-8');
 
-            console.log(operaciones.descripcion)
-            console.log(operaciones.monto)
-            console.log(operaciones.categoria)
-        
-        $('agregado-op').appendChild(operacionDiv);
-    ;
+for (let prop in operaciones){
+	operacionDiv.innerHTML = `
+            <div class="column is-justify-content-space-evenly">
+                <section class="is-flex-direction-column">
+                    <h2>${prop}</h2>
+                    <p class="mt-6">${operaciones[prop]}</p> 
+                </section>
+            </div>`
+	
+    }
+$('agregado-op').appendChild(operacionDiv);
 }
 
-
-
-// agregarNuevaOp(nuevasOperaciones) //ejecutar la funcion
+//HACER QUE SE INSERTE EN HTML CUANDO SE APRETE EL BOTON AGREGAR PQ SINO CADA COSA QUE EDITEMOS LA AGREGA
