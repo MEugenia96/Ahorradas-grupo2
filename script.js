@@ -1,4 +1,4 @@
-const $ = (selector) => document.getElementById(selector);
+//const $ = (selector) => document.getElementById(selector);
 
 //Boton +nueva operacion
 $('button-operation').addEventListener('click', () => addNewOperation());
