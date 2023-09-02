@@ -61,32 +61,36 @@ const captarInfo = () =>{
     agregarNuevaOp(nuevasOperaciones)
     
 }
-
 console.log(nuevasOperaciones)
 
-
-
-const btnAgregar = $('boton-agregar');
-btnAgregar.addEventListener('click', () => agregarNuevaOp())
-console.log(btnAgregar) //no funciona
-
-const agregarNuevaOp = (operaciones) => {
-	const operacionDiv = document.createElement('div');
-	operacionDiv.classList.add('columns', 'is-8');
-
-for (let prop in operaciones){
-	operacionDiv.innerHTML = `
-            <div class="column is-justify-content-space-evenly">
-                <section class="is-flex-direction-column">
-                    <h2>${prop}</h2>
-                    <p class="mt-6">${operaciones[prop]}</p> 
-                </section>
-            </div>`
-	
-    }
-$('agregado-op').appendChild(operacionDiv);
+$('boton-agregar').addEventListener('click', () => retornarAlInicio())
+const retornarAlInicio = () =>{
+    returnInicio();
+    $('imagen-sin-resultado').classList.add('hidden');
 }
 
 
+const agregarNuevaOp = (nuevasOperaciones) =>{
+    const operacionDiv = document.createElement('div');
+    operacionDiv.classList.add('columns', 'is-flex');
 
-//HACER QUE SE INSERTE EN HTML CUANDO SE APRETE EL BOTON AGREGAR PQ SINO CADA COSA QUE EDITEMOS LA AGREGA
+    $('contenedor-operaciones').innerHTML = '';
+
+    for (let prop in nuevasOperaciones){
+        const section = document.createElement('section');
+        section.classList.add('column', 'is-3');
+    
+        const h2 = document.createElement('h2');
+        h2.textContent = prop;
+    
+        const p = document.createElement('p');
+        p.classList.add('mt-3');
+        p.textContent = nuevasOperaciones[prop];
+    
+        section.appendChild(h2);
+        section.appendChild(p);
+    
+        $('contenedor-operaciones').appendChild(section);
+    };
+};
+
