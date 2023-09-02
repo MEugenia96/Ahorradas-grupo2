@@ -67,23 +67,25 @@ $('boton-agregar').addEventListener('click', () => retornarAlInicio())
 const retornarAlInicio = () =>{
     returnInicio();
     $('imagen-sin-resultado').classList.add('hidden');
+    agregarNuevaOp(nuevasOperaciones);
 }
 
 
 const agregarNuevaOp = (nuevasOperaciones) =>{
-    const operacionDiv = document.createElement('div');
-    operacionDiv.classList.add('columns', 'is-flex');
+    // const operacionDiv = document.createElement('div');
+    // operacionDiv.classList.add('columns', 'is-flex');
 
     $('contenedor-operaciones').innerHTML = '';
 
     for (let prop in nuevasOperaciones){
         const section = document.createElement('section');
-        section.classList.add('column', 'is-3');
+        section.classList.add('column');
     
         const h2 = document.createElement('h2');
         h2.textContent = prop;
+        
     
-        const p = document.createElement('p');
+        const p = document.createElement('p'); //Esto no deberia insertarse asi pq cada elemento tiene un
         p.classList.add('mt-3');
         p.textContent = nuevasOperaciones[prop];
     
