@@ -96,3 +96,17 @@ const agregarNuevaOp = (nuevasOperaciones) =>{
     };
 };
 
+//Total ganancias
+console.log($('total-ganancias'))
+
+const totalGanancias = (objOperaciones) =>{
+    $('tipo').addEventListener('change', (e) =>{
+        for(let prop in objOperaciones){
+            if(e.target.value === "Ganancias"){
+                $('total-ganancias').innerHTML = 'hola';
+            }
+        }
+    })
+};
+
+totalGanancias(nuevasOperaciones)
